@@ -27,6 +27,7 @@
     "grommet": "^1.8.2",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "leaflet": "^1.2.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
@@ -51,10 +52,13 @@
   },
   "devDependencies": {
     "node-sass": "^4.5.3",
+    "numeral": "^2.0.6",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "topojson": "^3.0.2",
+    "underscore": "^1.8.3"
   },
   "jest": {
     "collectCoverageFrom": [

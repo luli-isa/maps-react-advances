@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import App from 'grommet/components/App';
+import Box from "grommet/components/Box";
+import Headline from "grommet/components/Headline";
+import Paragraph from "grommet/components/Headline";
 
 class Home extends Component {
 
-  constructor(props){
-    super(props)
-
-  }
-
   render() {
-
     return (
-      <App>
-        ciao
-      </App>
+      <Box full={true} align="center" justify="center">
+        <Headline>React maps test</Headline>
+        <Paragraph size="small" align="center">
+          I would like test some react component about maps.
+        </Paragraph>
+      </Box>
     );
   }
 }

@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import App from 'grommet/components/App';
-import Split from 'grommet/components/Split';
-import Box from "grommet/components/Box";
+import {  Route, Switch } from 'react-router-dom';
+
+import FooterApp from './FooterApp';
+import HeaderApp from './HeaderApp';
+import ReactLeaflet from './ReactLeaflet';
+import Choropleth from './Choropleth';
+import NotFound from './NotFound';
+import Home from './Home';
+import Online from './ReactLeaflet/Online'
 
 class Main extends Component {
   render() {
     return (
-      <App>
-        <Split fixed={false} priority='left' flex='right'>
-          <Box colorIndex='grey-2' justify='center' align='center' pad='medium'>
-            Left Side
-          </Box>
-          <Box full="vertical" align='center' justify='center' direction="column" pad="medium">
-            Right side
-          </Box>
-        </Split>
+      <App centered={false}>
+         <HeaderApp />
+         <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route path="/reactleaflet" component={ReactLeaflet} />
+            <Route path="/reactleafletonline" component={Online} />
+            <Route path="/choropleth" component={Choropleth} />
+            <Route component={NotFound}/>
+         </Switch>
+         <FooterApp />
       </App>
     );
   }
