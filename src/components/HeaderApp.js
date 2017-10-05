@@ -21,14 +21,20 @@ class HeaderApp extends Component {
             inline={false}
             label='ReactLeaflet'>
             <Anchor href='/reactleaflet'>
-              React-LeafLet offline
+              React-LeafLet Offline
             </Anchor>
             <Anchor href='/reactleafletonline'>
               React-LeafLet Online
             </Anchor>
+            <Anchor href='/reactleafletantpath'>
+              React-LeafLet Animation
+            </Anchor>
           </Menu>
           <Anchor href='/choropleth'>
             Choropleth
+          </Anchor>
+          <Anchor href='/links'>
+            Links
           </Anchor>
         </Menu>
       </Header>

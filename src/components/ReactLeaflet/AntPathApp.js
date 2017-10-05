@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
-import { Map, GeoJSON } from 'react-leaflet'
-import topodata_world from "../../dati/world.json";
+import { Map, GeoJSON, TileLayer } from 'react-leaflet'
+import topodata_italy from "../../dati/regioni_italy.json";
+import path from "../../dati/sample-path.json";
 import { randomColor } from '../../utils'
+import AntPath from "react-leaflet-ant-path";
 
-class ReactLeaflet extends Component {
+class AntPathApp extends Component {
 
   constructor(props){
     super(props)
     this.state = {
       lat: 41.91893781173967,
       lng: 12.6567584228514,
-      zoom: 4
+      zoom: 4,
+      path,
+      options: {color: "red"},
+      messages: ["Waiting change"]
     }
   }
 
   onEachFeature(feature, layer) {
-    console.log(feature)
     if (feature.properties && feature.properties.name) {
         layer.bindPopup(feature.properties.name);
     }
@@ -35,11 +39,16 @@ class ReactLeaflet extends Component {
     return (
       <Box full={true} align="center" justify="between">
         <Map center={position} zoom={this.state.zoom}>
-          <GeoJSON data={topodata_world.features} style={this.getStyle} onEachFeature={this.onEachFeature}/>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          />
+          <GeoJSON data={topodata_italy.features} style={this.getStyle} onEachFeature={this.onEachFeature}/>
+          <AntPath positions={this.state.path} options={this.state.options}/>
         </Map>
       </Box>
     );
   }
 }
 
-export default ReactLeaflet;
+export default AntPathApp;

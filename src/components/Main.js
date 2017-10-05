@@ -8,7 +8,9 @@ import ReactLeaflet from './ReactLeaflet';
 import Choropleth from './Choropleth';
 import NotFound from './NotFound';
 import Home from './Home';
-import Online from './ReactLeaflet/Online'
+import Online from './ReactLeaflet/Online';
+import AntPathApp from './ReactLeaflet/AntPathApp';
+import Links from './Links';
 
 class Main extends Component {
   render() {
@@ -19,7 +21,9 @@ class Main extends Component {
             <Route exact path='/' component={Home}/>
             <Route path="/reactleaflet" component={ReactLeaflet} />
             <Route path="/reactleafletonline" component={Online} />
+            <Route path="/reactleafletantpath" component={AntPathApp} />
             <Route path="/choropleth" component={Choropleth} />
+            <Route path="/links" component={Links} />
             <Route component={NotFound}/>
          </Switch>
          <FooterApp />

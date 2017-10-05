@@ -15,8 +15,9 @@ class Online extends Component {
   }
 
   onEachFeature(feature, layer) {
-    if (feature.properties && feature.properties.name) {
-        layer.bindPopup(feature.properties.name);
+    console.log(feature.properties)
+    if (feature.properties && feature.properties.NAME_1) {
+        layer.bindPopup(feature.properties.NAME_1);
     }
   }
 
