@@ -3,6 +3,7 @@ import Box from "grommet/components/Box";
 import { Map, TileLayer, GeoJSON } from 'react-leaflet'
 import topodata_italy from "../../dati/regioni_italy.json";
 import { randomColor } from '../../utils'
+import Paragraph from "grommet/components/Paragraph"
 class Online extends Component {
 
   constructor(props){
@@ -15,7 +16,6 @@ class Online extends Component {
   }
 
   onEachFeature(feature, layer) {
-    console.log(feature.properties)
     if (feature.properties && feature.properties.NAME_1) {
         layer.bindPopup(feature.properties.NAME_1);
     }
@@ -31,7 +31,13 @@ class Online extends Component {
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
-      <Box full={true} align="center" justify="between">
+      <Box full={true} align="center">
+        <Paragraph>
+          <strong>react-leaflet</strong> draw shapefile over maps (OpenStreetMap)
+          or without <strong>TileLayer</strong> you can view a shape without internet connection.
+        </Paragraph>
+        <hr/>
+        <hr/>
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

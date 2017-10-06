@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import { Map, GeoJSON, TileLayer } from 'react-leaflet'
 import topodata_italy from "../../dati/regioni_italy.json";
-import path from "../../dati/sample-path.json";
+import path from "../../dati/sample-path-region.json";
 import { randomColor } from '../../utils'
 import AntPath from "react-leaflet-ant-path";
+import Paragraph from 'grommet/components/Paragraph';
 
 class AntPathApp extends Component {
 
@@ -15,7 +16,7 @@ class AntPathApp extends Component {
       lng: 12.6567584228514,
       zoom: 4,
       path,
-      options: {color: "red"},
+      options: {color: "black"},
       messages: ["Waiting change"]
     }
   }
@@ -37,7 +38,14 @@ class AntPathApp extends Component {
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
-      <Box full={true} align="center" justify="between">
+      <Box full={true} align="center">
+        <Paragraph>
+          With <strong>react-leaflet-ant-path</strong>,
+          you can show a path on map with animation like
+          this simply pass to AntPath component an array of coordinates
+        </Paragraph>
+        <hr/>
+        <hr/>
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

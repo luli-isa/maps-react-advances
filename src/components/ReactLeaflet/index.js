@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
+import Paragraph from "grommet/components/Paragraph"
 import { Map, GeoJSON } from 'react-leaflet'
 import topodata_world from "../../dati/world.json";
 import { randomColor } from '../../utils'
@@ -16,7 +17,6 @@ class ReactLeaflet extends Component {
   }
 
   onEachFeature(feature, layer) {
-    console.log(feature)
     if (feature.properties && feature.properties.name) {
         layer.bindPopup(feature.properties.name);
     }
@@ -33,7 +33,13 @@ class ReactLeaflet extends Component {
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
-      <Box full={true} align="center" justify="between">
+      <Box full={true} align="center">
+        <Paragraph>
+          <strong>react-leaflet</strong> draw shapefile over maps (OpenStreetMap)
+          or without <strong>TileLayer</strong> you can view a shape without internet connection.
+        </Paragraph>
+        <hr/>
+        <hr/>
         <Map center={position} zoom={this.state.zoom}>
           <GeoJSON data={topodata_world.features} style={this.getStyle} onEachFeature={this.onEachFeature}/>
         </Map>

@@ -5,7 +5,7 @@ import {  Route, Switch } from 'react-router-dom';
 import FooterApp from './FooterApp';
 import HeaderApp from './HeaderApp';
 import ReactLeaflet from './ReactLeaflet';
-import Choropleth from './Choropleth';
+import D3Maps from './D3Maps';
 import NotFound from './NotFound';
 import Home from './Home';
 import Online from './ReactLeaflet/Online';
@@ -22,7 +22,7 @@ class Main extends Component {
             <Route path="/reactleaflet" component={ReactLeaflet} />
             <Route path="/reactleafletonline" component={Online} />
             <Route path="/reactleafletantpath" component={AntPathApp} />
-            <Route path="/choropleth" component={Choropleth} />
+            <Route path="/d3maps" component={D3Maps} />
             <Route path="/links" component={Links} />
             <Route component={NotFound}/>
          </Switch>

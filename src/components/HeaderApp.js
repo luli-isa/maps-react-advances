@@ -30,8 +30,8 @@ class HeaderApp extends Component {
               React-LeafLet Animation
             </Anchor>
           </Menu>
-          <Anchor href='/choropleth'>
-            Choropleth
+          <Anchor href='/d3maps'>
+            react-d3-map
           </Anchor>
           <Anchor href='/links'>
             Links
